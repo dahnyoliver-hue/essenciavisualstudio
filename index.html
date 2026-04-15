@@ -6,202 +6,266 @@
     <title>Essência Visual | Ensaios Profissionais com IA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         .gradient-text {
-            background: linear-gradient(90deg, #db2777, #7c3aed);
+            background: linear-gradient(90deg, #c5a059, #e6c98f);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .float-btn {
             animation: bounce 2s infinite;
         }
+
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
             40% {transform: translateY(-10px);}
             60% {transform: translateY(-5px);}
         }
-        /* Ajuste para garantir que 4 colunas fiquem boas */
+
+        /* BOTÃO PULSANDO */
+        .cta-pulse {
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197,160,89,0.5);}
+            70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(197,160,89,0);}
+            100% { transform: scale(1); }
+        }
+
+        /* CARDS */
         .price-card { transition: all 0.3s ease; }
-        .price-card:hover { transform: translateY(-5px); }
+        .price-card:hover { transform: translateY(-6px) scale(1.02); }
+
+        /* PREMIUM BORDA */
+        .premium-border {
+            border: 2px solid #c5a059;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* ANIMAÇÃO */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all .8s ease;
+        }
+
+        .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
+
 <body class="bg-slate-50 text-slate-800 font-sans">
 
-    <header class="relative bg-white pt-16 pb-24 px-6 overflow-hidden border-b border-slate-100">
-        <div class="max-w-4xl mx-auto text-center">
-            <span class="inline-block px-4 py-1 mb-6 text-sm font-semibold text-pink-600 bg-pink-100 rounded-full">Ensaios de Fotos Realistas</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-                Você merece fotos lindas — <span class="gradient-text">mesmo sem tempo, sem estúdio e sem gastar caro.</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-600 mb-10">
-                Criamos ensaios profissionais em até 24h, sem você sair de casa.
-            </p>
-            <a href="https://wa.me/5513997958538?text=Oi!%20Vi%20o%20site%20e%20quero%20minhas%20fotos" class="bg-pink-600 hover:bg-pink-700 text-white text-xl font-bold py-5 px-10 rounded-xl shadow-2xl transition-all inline-block">
-                👉 QUERO MINHAS FOTOS AGORA <span class="block text-sm font-normal opacity-90">(a partir de R$19,90)</span>
-            </a>
-        </div>
-    </header>
+<header class="relative bg-white pt-16 pb-24 px-6 overflow-hidden border-b border-slate-100">
+    <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-block px-4 py-1 mb-6 text-sm font-semibold text-pink-600 bg-pink-100 rounded-full">Ensaios de Fotos Realistas</span>
 
-    <section class="py-20 bg-slate-100 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-2">Veja a transformação na prática</h2>
-            <p class="text-slate-600 mb-12">Fotos comuns viram ensaios profissionais em poucos cliques</p>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-4 rounded-2xl shadow-lg">
-                    <p class="font-bold mb-4">Sua Foto Comum</p>
-                    <img src="https://via.placeholder.com/400x500?text=Sua+Foto+Aqui" alt="Antes" class="rounded-lg w-full grayscale opacity-70">
-                </div>
-                <div class="bg-white p-4 rounded-2xl shadow-lg border-2 border-pink-500">
-                    <p class="font-bold mb-4 text-pink-600">Resultado Profissional</p>
-                    <img src="https://via.placeholder.com/400x500?text=Resultado+IA" alt="Depois" class="rounded-lg w-full">
-                </div>
-            </div>
-        </div>
-    </section>
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+            Você merece fotos lindas — <span class>mesmo sem tempo, sem estúdio e sem gastar muito.</span>
+        </h1>
 
-    <section class="py-20 px-6 bg-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-12">Como funciona</h2>
-            <div class="grid md:grid-cols-3 gap-10 text-left">
-                <div class="p-6">
-                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">1</div>
-                    <h3 class="font-bold text-xl mb-2">Você envia</h3>
-                    <p class="text-slate-600">Envie suas fotos favoritas direto pelo WhatsApp.</p>
-                </div>
-                <div class="p-6 border-y md:border-y-0 md:border-x border-slate-100">
-                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">2</div>
-                    <h3 class="font-bold text-xl mb-2">Escolhe o estilo</h3>
-                    <p class="text-slate-600">Gestante, bebê, profissional, corporativo e mais.</p>
-                </div>
-                <div class="p-6">
-                    <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">3</div>
-                    <h3 class="font-bold text-xl mb-2">Recebe em 24h</h3>
-                    <p class="text-slate-600">Fotos prontas em alta resolução prontas para postar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <p class="text-lg md:text-xl text-slate-600 mb-10">
+            Criamos seu ensaio profissional em até 24h, sem você sair de casa.
+        </p>
 
-    <section class="py-20 bg-slate-900 text-white px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center">Perfeito pra quem…</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
-                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
-                    <span>Não tem tempo pra fazer ensaio</span>
-                </div>
-                <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
-                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
-                    <span>Não quer gastar com estúdio</span>
-                </div>
-                <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
-                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
-                    <span>Não se sente confortável em fotos</span>
-                </div>
-                <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
-                    <i class="fas fa-check-circle text-green-400 text-xl"></i>
-                    <span>Quer se ver linda(o) sem complicação</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        <a href="https://wa.me/5513997958538?text=Oi!%20Vi%20o%20site%20e%20quero%20minhas%20fotos"
+        class="bg-pink-600 hover:bg-pink-700 text-white text-xl font-bold py-5 px-10 rounded-xl shadow-2xl transition-all inline-block cta-pulse">
+            👉 QUERO MINHAS FOTOS AGORA
+            <span class="block text-sm font-normal opacity-90">(a partir de R$19,90)</span>
+        </a>
+<p class="text-sm text-gray-500 mt-4">
++500 clientes já fizeram suas fotos
+</p>
+    </div>
+</header>
 
-    <section class="py-20 px-6 bg-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-12 italic">"Eu não me sentia bonita grávida… quando vi as fotos, chorei. Parece ensaio real!"</h2>
-            <p class="font-bold text-lg text-pink-600">— Amanda, cliente</p>
-        </div>
-    </section>
+<section class="py-20 bg-slate-100 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-2">Veja a transformação na prática</h2>
+        <p class="text-slate-600 mb-12">Fotos comuns viram ensaios profissionais em poucos cliques</p>
 
-    <section class="py-24 px-6 bg-slate-100">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <p class="text-red-500 font-bold mb-4 uppercase tracking-widest">⚠️ Promoção válida hoje — Vagas limitadas</p>
-                <h2 class="text-4xl font-extrabold mb-4">Escolha seu Pacote</h2>
-                <p class="text-slate-600">Resultados profissionais garantidos ou seu dinheiro de volta</p>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-white p-4 rounded-2xl shadow-lg">
+                <p class="font-bold mb-4">Sua Foto Comum</p>
+                <img src="assets/imagens/antes.jpg" class="rounded-lg w-full">
             </div>
 
-            <div class="grid md:grid-cols-4 gap-6">
-
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center opacity-90 price-card shadow-sm">
-                    <h3 class="text-xs uppercase tracking-widest text-slate-400 mb-2 font-bold italic">Teste</h3>
-                    <h3 class="text-xl font-bold mb-2">Mini Ensaio</h3>
-                    <p class="text-3xl font-black mb-6">R$19,90</p>
-                    <ul class="mb-8 text-slate-500 text-sm space-y-3">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 2 fotos em alta</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 1 estilo</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Entrega em 24h</li>
-                    </ul>
-                    <a href="https://wa.me/5513997958538?text=Quero%20testar%20o%20Mini%20Ensaio"
-                    class="block text-center border-2 border-slate-300 py-3 rounded-xl font-bold hover:bg-slate-50 transition">
-                        Experimentar
-                    </a>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center price-card shadow-sm">
-                    <h3 class="text-xl font-bold mb-2">Essencial</h3>
-                    <p class="text-3xl font-black mb-6">R$49,90</p>
-                    <ul class="mb-8 text-slate-600 text-sm space-y-3">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 5 fotos em alta</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 1 estilo</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Entrega em 24h</li>
-                    </ul>
-                    <a href="https://wa.me/5513997958538?text=Quero%20o%20Essencial"
-                    class="block text-center bg-slate-800 text-white py-3 rounded-xl font-bold hover:bg-slate-900 transition">
-                        Escolher
-                    </a>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl border-4 border-pink-500 shadow-2xl scale-105 text-center relative price-card z-10">
-                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-pink-500 text-white px-4 py-1 text-xs rounded-full font-bold">
-                        MAIS ESCOLHIDO ⭐
-                    </span>
-                    <h3 class="text-xl font-bold mb-2 text-pink-600">Premium</h3>
-                    <p class="text-4xl font-black mb-6">R$89,90</p>
-                    <ul class="mb-8 text-slate-700 text-sm font-medium space-y-3">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 10 fotos</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Até 3 cenários</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Edição avançada</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Entrega Rápida</li>
-                    </ul>
-                    <a href="https://wa.me/5513997958538?text=Quero%20o%20Premium"
-                    class="block text-center bg-pink-600 text-white py-4 rounded-xl font-bold hover:bg-pink-700 shadow-lg transition">
-                        Quero esse
-                    </a>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center price-card shadow-sm">
-                    <h3 class="text-xl font-bold mb-2">Gold</h3>
-                    <p class="text-3xl font-black mb-6">R$147</p>
-                    <ul class="mb-8 text-slate-600 text-sm space-y-3">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> 15 fotos</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Máxima qualidade</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Vários cenários</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i> Entrega Rápida</li>
-                    </ul>
-                    <a href="https://wa.me/5513997958538?text=Quero%20o%20Gold"
-                    class="block text-center bg-slate-800 text-white py-3 rounded-xl font-bold hover:bg-slate-900 transition">
-                        Escolher
-                    </a>
-                </div>
-
+            <div class="bg-white p-4 rounded-2xl shadow-lg premium-border">
+                <p class="font-bold mb-4 text-pink-600">Resultado Profissional</p>
+                <img src="assets/imagens/depois.jpg" class="rounded-lg w-full">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="py-12 bg-white text-center border-t border-slate-100">
-        <div class="flex flex-wrap justify-center gap-8 text-sm font-bold text-slate-500 mb-8 px-4">
-            <span><i class="fas fa-home mr-1 text-pink-500"></i> SEM SAIR DE CASA</span>
-            <span><i class="fas fa-magic mr-1 text-pink-500"></i> RESULTADO REALISTA</span>
-            <span><i class="fab fa-whatsapp mr-1 text-pink-500"></i> ATENDIMENTO RÁPIDO</span>
+<section class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-12">Como funciona</h2>
+
+        <div class="grid md:grid-cols-3 gap-10 text-left">
+            <div class="p-6">
+                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">1</div>
+                <h3 class="font-bold text-xl mb-2">Você envia</h3>
+                <p class="text-slate-600">Envie suas fotos favoritas direto pelo WhatsApp.</p>
+            </div>
+
+            <div class="p-6 border-y md:border-y-0 md:border-x border-slate-100">
+                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">2</div>
+                <h3 class="font-bold text-xl mb-2">Escolhe o estilo</h3>
+                <p class="text-slate-600">Gestante, bebê, profissional, corporativo e mais.</p>
+            </div>
+
+            <div class="p-6">
+                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">3</div>
+                <h3 class="font-bold text-xl mb-2">Recebe em 24h</h3>
+                <p class="text-slate-600">Fotos prontas em alta resolução prontas para postar.</p>
+            </div>
         </div>
-        <p class="text-slate-400 text-xs px-4">&copy; 2026 Essência Visual Studio - Todos os direitos reservados.</p>
-    </footer>
+    </div>
+</section>
 
-    <a href="https://wa.me/5513997958538?text=Quero%20minhas%20fotos%20com%20desconto%20de%20hoje" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl z-50 float-btn flex items-center space-x-2">
-        <i class="fab fa-whatsapp text-3xl"></i>
-        <span class="hidden md:inline font-bold pr-2">+500 mulheres já se transformaram</span>
+<section class="py-20 bg-slate-900 text-white px-6">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-10 text-center">Perfeito pra quem…</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
+                <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                <span>Não tem tempo pra fazer ensaio</span>
+            </div>
+
+            <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
+                <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                <span>Não quer gastar com estúdio</span>
+            </div>
+
+            <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
+                <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                <span>Não se sente confortável em fotos</span>
+            </div>
+
+            <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
+                <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                <span>Quer se ver linda(o) sem complicação</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 px-6 bg-white text-center">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 italic">
+            "Eu não me sentia bonita grávida… quando vi as fotos, chorei. Parece ensaio real!"
+        </h2>
+        <p class="font-bold text-lg text-pink-600">— Amanda, cliente</p>
+    </div>
+</section>
+
+<section class="py-24 px-6 bg-slate-100">
+    <div class="max-w-7xl mx-auto">
+
+        <div class="text-center mb-16">
+            <p class="text-red-500 font-bold mb-4 uppercase tracking-widest">⚠️ Promoção válida hoje — Vagas limitadas</p>
+            <h2 class="text-4xl font-extrabold mb-4">Escolha seu Pacote</h2>
+            <p class="text-slate-600">Resultados profissionais garantidos, teste agora ⬇️</p>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-6">
+
+            <div class="bg-white p-6 rounded-2xl border text-center opacity-90 price-card shadow-sm">
+                <h3 class="text-xl font-bold mb-2">Teste Premium</h3>
+                <p class="text-3xl font-black mb-6">R$19,90</p>
+                <ul class="mb-8 text-slate-500 text-sm space-y-3">
+                    <li>✔ 2 fotos profissionais</li>
+                    <li>✔ 1 cenário</li>
+                    <li>✔ Entrega em 24h</li>
+              </ul>
+<a href="https://wa.me/5513997958538?text=Oi!%20Vi%20seu%20site%20e%20quero%20o%20plano%20Teste"
+class="block border-2 py-3 rounded-xl font-bold">
+Experimentar
+</a>
+</div>
+
+<div class="bg-white p-6 rounded-2xl border text-center price-card shadow-sm">
+<h3 class="text-xl font-bold mb-2">Essencial</h3>
+<p class="text-3xl font-black mb-6">R$49,90</p>
+<ul class="mb-8 text-sm space-y-3">
+    <li>✔ 5 fotos profissionais</li>
+    <li>✔ 1 cenário</li>
+    <li>✔ Entrega em 24h</li>
+</ul>
+<a href="https://wa.me/5513997958538?text=Oi!%20Vi%20seu%20site%20e%20quero%20o%20plano%20Essencial"
+class="block bg-[#1a1a1a] text-white py-3 rounded-xl font-bold">
+Escolher Esse
+</a>
+</div>
+
+<div class="bg-white p-8 rounded-2xl premium-border shadow-2xl scale-105 text-center price-card">
+<h3 class="text-xl font-bold mb-2 text-[#c5a059]">Premium</h3>
+
+<span class="bg-[#c5a059] text-white px-3 py-1 text-xs rounded-full mb-2 inline-block">
+MAIS ESCOLHIDO
+</span>
+
+<p class="text-4xl font-black mb-6">R$89,90</p>
+<ul class="mb-8 text-sm space-y-3">
+    <li>✔ 10 fotos profissionais</li>
+    <li>✔ até 3 cenários</li>
+    <li>✔ edição avançada</li>
+</ul>
+<a href="https://wa.me/5513997958538?text=Oi!%20Vi%20seu%20site%20e%20quero%20o%20plano%20Premium"
+class="block bg-[#c5a059] text-white py-4 rounded-xl font-bold cta-pulse">
+Quero Esse
+</a>
+</div>
+
+<div class="bg-white p-6 rounded-2xl border text-center price-card shadow-sm">
+<h3 class="text-xl font-bold mb-2">Gold</h3>
+<p class="text-3xl font-black mb-6">R$147</p>
+<ul class="mb-8 text-sm space-y-3">
+    <li>✔ 15 fotos profissionais</li>
+    <li>✔ até 5 cenários</li>
+    <li>✔ máxima qualidade</li>
+</ul>
+<a href="https://wa.me/5513997958538?text=Oi!%20Vi%20seu%20site%20e%20quero%20o%20plano%20Gold"
+class="block bg-[#1a1a1a] text-white py-3 rounded-xl font-bold">
+Escolher Esse
+</a>
+</div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-12 bg-white text-center border-t">
+    <p class="text-slate-400 text-xs">&copy; 2026 Essência Visual Studio</p>
+</footer>
+
+<a href="#" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl float-btn">
+    <i class="fab fa-whatsapp text-3xl"></i>
+</a>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll("section").forEach(sec => {
+  sec.classList.add("fade-up");
+  observer.observe(sec);
+});
+</script>
+
+</body>
+</html>
     </a>
 
 </body>
