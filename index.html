@@ -1,271 +1,249 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essência Visual | Ensaios Profissionais com IA</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essência Visual Studio | Fotos & Vídeos com IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #e8405a; --gold: #c9973a; --dark: #0f0c0d; --cream: #fdf6ee; --muted: #8a7060;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--dark); color: var(--cream); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 
-    <style>
-        .gradient-text {
-            background: linear-gradient(90deg, #c5a059, #e6c98f);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  .urgency {
+    background: linear-gradient(90deg, var(--rose), #c0392b);
+    padding: 14px; text-align: center; font-size: 14px; position: sticky; top: 0; z-index: 100; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .timer { background: rgba(0,0,0,0.3); padding: 4px 10px; border-radius: 6px; font-family: monospace; font-size: 16px; }
 
-        .float-btn {
-            animation: bounce 2s infinite;
-        }
+  .hero { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 24px; background: radial-gradient(circle at center, #1a0e10 0%, #0d0a0b 100%); }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 20px; }
+  .hero h1 span { color: var(--gold); font-style: italic; }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
+  .entry-offer { background: #1a1015; border: 1px solid var(--gold); border-radius: 24px; padding: 40px; max-width: 600px; margin: 20px auto; text-align: center; }
+  .price-tag { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--gold); }
+  .price-sub { text-decoration: line-through; color: var(--muted); font-size: 1.2rem; margin-bottom: 10px; }
 
-        /* BOTÃO PULSANDO */
-        .cta-pulse {
-            animation: pulse 1.8s infinite;
-        }
+  .social-proof {
+    background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 30px 24px; display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; text-align: center;
+  }
+  .proof-item { font-size: 14px; color: #8a7060; }
+  .proof-item b { display: block; font-size: 1.8rem; color: var(--cream); font-family: 'Playfair Display'; }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197,160,89,0.5);}
-            70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(197,160,89,0);}
-            100% { transform: scale(1); }
-        }
+  section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; text-align: center; margin-bottom: 10px; }
+  .section-sub-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); text-align: center; margin-bottom: 20px; font-style: italic; }
+  .section-desc { color: #b8a898; text-align: center; max-width: 700px; margin: 0 auto 40px; line-height: 1.6; }
 
-        /* CARDS */
-        .price-card { transition: all 0.3s ease; }
-        .price-card:hover { transform: translateY(-6px) scale(1.02); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 48px; }
+  @media (max-width: 800px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+  .gallery-item { border-radius: 16px; overflow: hidden; aspect-ratio: 3/4; background: #1a1015; border: 1px solid rgba(255,255,255,0.06); position: relative; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* PREMIUM BORDA */
-        .premium-border {
-            border: 2px solid #c5a059;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+  .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .card { background: #161112; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 35px; }
+  .card h4 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--gold); }
+  .card .price { font-size: 2.2rem; font-weight: 700; margin: 15px 0; font-family: 'Playfair Display', serif; }
+  .card ul { list-style: none; margin-bottom: 25px; }
+  .card li { margin-bottom: 12px; font-size: 14px; color: #b8a898; display: flex; align-items: center; gap: 8px; }
+  .card li::before { content: '→'; color: var(--rose); font-size: 12px; }
 
-        /* ANIMAÇÃO */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all .8s ease;
-        }
+  .btn { display: block; text-align: center; padding: 16px; border-radius: 100px; text-decoration: none; font-weight: 700; transition: 0.3s; font-size: 14px; }
+  .btn-gold { background: var(--gold); color: #000; }
+  .btn-outline { border: 1px solid var(--gold); color: var(--gold); }
 
-        .fade-up.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .testimonial { background: #161112; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 30px; }
+  .stars { color: var(--gold); margin-bottom: 15px; }
+  .testimonial p { font-size: 14px; color: #c4b4a4; line-height: 1.6; margin-bottom: 20px; font-style: italic; }
+  .testimonial .author { font-size: 13px; font-weight: 600; color: #fff; }
+
+  .final-cta { text-align: center; padding: 100px 24px; background: #0a0a0b; }
+  .footer-btn { display: inline-block; background: #25d366; color: white; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: bold; margin-bottom: 15px; }
+  .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+</style>
 </head>
+<body>
 
-<body class="bg-slate-50 text-slate-800 font-sans">
-
-<header class="relative bg-white pt-16 pb-24 px-6 overflow-hidden border-b border-slate-100">
-    <div class="max-w-4xl mx-auto text-center">
-        <span class="inline-block px-4 py-1 mb-6 text-sm font-semibold text-pink-600 bg-pink-100 rounded-full">Ensaios de Fotos Realistas</span>
-
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-            Você merece fotos lindas — <span class>mesmo sem tempo, sem estúdio e sem gastar muito.</span>
-        </h1>
-
-        <p class="text-lg md:text-xl text-slate-600 mb-10">
-            Criamos seu ensaio profissional em até 24h, sem você sair de casa.
-        </p>
-
-        <a href="https://wa.me/5513997958538?text=Oi!%20Vi%20o%20site%20e%20quero%20minhas%20fotos"
-        class="bg-pink-600 hover:bg-pink-700 text-white text-xl font-bold py-5 px-10 rounded-xl shadow-2xl transition-all inline-block cta-pulse">
-            👉 QUERO MINHAS FOTOS AGORA
-            <span class="block text-sm font-normal opacity-90">(a partir de R$19,90)</span>
-        </a>
-<p class="text-sm text-gray-500 mt-4">
-+500 clientes já fizeram suas fotos
-</p>
-    </div>
-</header>
-
-<section class="py-20 bg-slate-100 px-6">
-    <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-2">Veja a transformação na prática</h2>
-        <p class="text-slate-600 mb-12">Fotos comuns viram ensaios profissionais em poucos cliques</p>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-white p-4 rounded-2xl shadow-lg">
-                <p class="font-bold mb-4">Sua Foto Comum</p>
-                <img src="assets/imagens/antes.jpg">
-            </div>
-
-            <div class="bg-white p-4 rounded-2xl shadow-lg premium-border">
-                <p class="font-bold mb-4 text-pink-600">Resultado Profissional</p>
-                <img src="assets/imagens/depois.jpg">
-             <class="rounded-lg w-full">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-20 px-6 bg-white">
-    <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-12">Como funciona</h2>
-
-        <div class="grid md:grid-cols-3 gap-10 text-left">
-            <div class="p-6">
-                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">1</div>
-                <h3 class="font-bold text-xl mb-2">Você envia</h3>
-                <p class="text-slate-600">Envie suas fotos favoritas direto pelo WhatsApp.</p>
-            </div>
-
-            <div class="p-6 border-y md:border-y-0 md:border-x border-slate-100">
-                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">2</div>
-                <h3 class="font-bold text-xl mb-2">Escolhe o estilo</h3>
-                <p class="text-slate-600">Gestante, bebê, profissional, corporativo e mais.</p>
-            </div>
-
-            <div class="p-6">
-                <div class="w-12 h-12 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-2xl font-bold mb-4">3</div>
-                <h3 class="font-bold text-xl mb-2">Recebe em 24h</h3>
-                <p class="text-slate-600">Fotos prontas em alta resolução prontas para postar.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-20 bg-slate-900 text-white px-6">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-10 text-center">Perfeito pra quem…</h2>
-
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
-                <i class="fas fa-check-circle text-green-400 text-xl"></i>
-                <span>Não tem tempo pra fazer ensaio</span>
-            </div>
-
-            <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
-                <i class="fas fa-check-circle text-green-400 text-xl"></i>
-                <span>Não quer gastar com estúdio</span>
-            </div>
-
-            <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
-                <i class="fas fa-check-circle text-green-400 text-xl"></i>
-                <span>Não se sente confortável em fotos</span>
-            </div>
-
-            <div class="flex items-center space-x-4 p-4 bg-slate-800 rounded-lg italic">
-                <i class="fas fa-check-circle text-green-400 text-xl"></i>
-                <span>Quer se ver linda(o) sem complicação</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="py-20 px-6 bg-white text-center">
-    <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 italic">
-            "Eu não me sentia bonita grávida… quando vi as fotos, chorei. Parece ensaio real!"
-        </h2>
-        <p class="font-bold text-lg text-pink-600">— Amanda, cliente</p>
-    </div>
-</section>
-
-<section class="py-24 px-6 bg-slate-100">
-    <div class="max-w-7xl mx-auto">
-
-        <div class="text-center mb-16">
-            <p class="text-red-500 font-bold mb-4 uppercase tracking-widest">⚠️ Promoção válida hoje — Vagas limitadas</p>
-            <h2 class="text-4xl font-extrabold mb-4">Escolha seu Pacote</h2>
-            <p class="text-slate-600">Resultados profissionais garantidos, teste agora ⬇️</p>
-        </div>
-
-        <div class="grid md:grid-cols-4 gap-6">
-
-            <div class="bg-white p-6 rounded-2xl border text-center opacity-90 price-card shadow-sm">
-                <h3 class="text-xl font-bold mb-2">Teste Premium</h3>
-                <p class="text-3xl font-black mb-6">R$19,90</p>
-                <ul class="mb-8 text-slate-500 text-sm space-y-3">
-                    <li>✔ 2 fotos profissionais</li>
-                    <li>✔ 1 cenário</li>
-                    <li>✔ Entrega em 24h</li>
-              </ul>
-<a href="https://wa.me/5513997958538?text=Oi!%20Vi%20seu%20site%20e%20quero%20o%20plano%20Teste"
-class="block border-2 py-3 rounded-xl font-bold">
-Experimentar
-</a>
+<div class="urgency">
+  Oferta especial termina em <span class="timer" id="timer">14:52</span> — Garanta agora!
 </div>
 
-<div class="bg-white p-6 rounded-2xl border text-center price-card shadow-sm">
-<h3 class="text-xl font-bold mb-2">Essencial</h3>
-<p class="text-3xl font-black mb-6">R$49,90</p>
-<ul class="mb-8 text-sm space-y-3">
-    <li>✔ 5 fotos profissionais</li>
-    <li>✔ 1 cenário</li>
-    <li>✔ Entrega em 24h</li>
-</ul>
-<a href="https://wa.me/5513997958538?text=Oi!%20Vi%20seu%20site%20e%20quero%20o%20plano%20Essencial"
-class="block bg-[#1a1a1a] text-white py-3 rounded-xl font-bold">
-Escolher Esse
-</a>
+<div class="hero">
+  <h1>Sua <span>essência</span> transformada<br>pela Inteligência Artificial</h1>
+  
+  <div class="entry-offer">
+    <div style="color: var(--gold); letter-spacing: 2px; margin-bottom: 10px; font-size: 12px; font-weight: bold;">🎁 TESTE AGORA</div>
+    <div class="price-sub">De R$ 29,90</div>
+    <div class="price-tag"><sup>R$</sup>19<span style="font-size:1.5rem">,90</span></div>
+    <h3 style="margin-top: 15px; font-family: 'Playfair Display'; color: #fff;">2 Fotos com IA — Experimente!</h3>
+    <p style="margin: 15px 0; font-size: 15px; line-height: 1.6; color: #b8a898;">Mande suas fotos, escolha o tema e receba 2 imagens incríveis criadas com IA. Se amar, você vê os pacotes completos.</p>
+    
+    <ul style="list-style: none; color: var(--gold); font-size: 14px; margin-bottom: 20px;">
+        <li>✔ 2 fotos editadas com IA no tema que você escolher</li>
+        <li>✔ Entrega em até 24 horas</li>
+    </ul>
+
+    <a href="https://wa.me/5513997958538?text=Quero%20fazer%20o%20teste%20de%202%20fotos%20por%2019,90" class="btn btn-gold">Quero testar por R$ 19,90 →</a>
+    <p style="margin-top: 15px; font-size: 12px; color: var(--rose); font-weight: bold;">Apenas 5 vagas disponíveis hoje</p>
+  </div>
 </div>
 
-<div class="bg-white p-8 rounded-2xl premium-border shadow-2xl scale-105 text-center price-card">
-<h3 class="text-xl font-bold mb-2 text-[#c5a059]">Premium</h3>
-
-<span class="bg-[#c5a059] text-white px-3 py-1 text-xs rounded-full mb-2 inline-block">
-MAIS ESCOLHIDO
-</span>
-
-<p class="text-4xl font-black mb-6">R$89,90</p>
-<ul class="mb-8 text-sm space-y-3">
-    <li>✔ 10 fotos profissionais</li>
-    <li>✔ até 3 cenários</li>
-    <li>✔ edição avançada</li>
-</ul>
-<a href="https://wa.me/5513997958538?text=Oi!%20Vi%20seu%20site%20e%20quero%20o%20plano%20Premium"
-class="block bg-[#c5a059] text-white py-4 rounded-xl font-bold cta-pulse">
-Quero Esse
-</a>
+<div class="social-proof">
+  <div class="proof-item"><b>+200</b> clientes felizes</div>
+  <div class="proof-item"><b>+500</b> fotos criadas</div>
+  <div class="proof-item"><b>100%</b> satisfação garantida</div>
+  <div class="proof-item"><b>24h</b> entrega express</div>
 </div>
 
-<div class="bg-white p-6 rounded-2xl border text-center price-card shadow-sm">
-<h3 class="text-xl font-bold mb-2">Gold</h3>
-<p class="text-3xl font-black mb-6">R$147</p>
-<ul class="mb-8 text-sm space-y-3">
-    <li>✔ 15 fotos profissionais</li>
-    <li>✔ até 5 cenários</li>
-    <li>✔ máxima qualidade</li>
-</ul>
-<a href="https://wa.me/5513997958538?text=Oi!%20Vi%20seu%20site%20e%20quero%20o%20plano%20Gold"
-class="block bg-[#1a1a1a] text-white py-3 rounded-xl font-bold">
-Escolher Esse
-</a>
+<section id="ensaios">
+  <h2 class="section-title">📸 Ensaios com IA</h2>
+  <h3 class="section-sub-title">Fotos que parecem de estúdio profissional</h3>
+  <p class="section-desc">Sem sair de casa, sem fotógrafo, sem cenário. Mande suas fotos e receba ensaios temáticos criados com inteligência artificial.</p>
+  
+  <div class="gallery-grid">
+    <div class="gallery-item">
+   <img src="img/depois.jpg"></div>
+    <div class="gallery-item">
+   <img src="img/newborn.jpg">
 </div>
-        </div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1530103862676-fa390d41246a?auto=format&fit=crop&q=80&w=600"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600"></div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card">
+      <h4>Essencial</h4>
+      <div class="price">R$ 49,90</div>
+      <ul>
+        <li>Imagens em alta definição</li>
+        <li>Fundo e iluminação profissional</li>
+        <li>Foco em rede social</li>
+      </ul>
+      <a href="https://wa.me/5513997958538?text=Quero%20o%20Pacote%20Essencial" class="btn btn-outline">Contratar</a>
     </div>
+    <div class="card" style="border-color: var(--gold);">
+      <h4>Premium</h4>
+      <div class="price">R$ 89,90</div>
+      <ul>
+        <li>Qualidade máxima de renderização</li>
+        <li>Composição visual avançada</li>
+        <li>Ideal para perfil profissional</li>
+      </ul>
+      <a href="https://wa.me/5513997958538?text=Quero%20o%20Pacote%20Premium" class="btn btn-gold">Contratar</a>
+    </div>
+    <div class="card">
+      <h4>Gold</h4>
+      <div class="price">R$ 149,90</div>
+      <ul>
+        <li>15 Fotos com IA</li>
+        <li>Até 5 temas exclusivos</li>
+        <li>3 Retoques especiais</li>
+      </ul>
+      <a href="https://wa.me/5513997958538?text=Quero%20o%20Pacote%20Gold" class="btn btn-outline">Contratar</a>
+    </div>
+  </div>
 </section>
 
-<footer class="py-12 bg-white text-center border-t">
-    <p class="text-slate-400 text-xs">&copy; 2026 Essência Visual Studio</p>
-</footer>
+<section id="convites" style="background: #0d0d0d;">
+  <h2 class="section-title">🎉 Convites Digitais</h2>
+  <h3 class="section-sub-title">Convites que ninguém esquece de abrir</h3>
+  <p class="section-desc">Do simples e elegante ao animado e interativo. Convites digitais para festas infantis, aniversários, casamentos e eventos corporativos.</p>
+  
+  <div class="grid-3">
+    <div class="card">
+      <h4>Simples</h4>
+      <div class="price">R$ 29,90</div>
+      <ul><li>Arte estática personalizada</li><li>Entrega rápida</li></ul>
+      <a href="https://wa.me/5513997958538?text=Quero%20o%20Convite%20Simples" class="btn btn-outline">Pedir agora</a>
+    </div>
+    <div class="card">
+      <h4>Animado</h4>
+      <div class="price">R$ 49,90</div>
+      <ul><li>Vídeo animado com música</li><li>Dinâmico e atrativo</li></ul>
+      <a href="https://wa.me/5513997958538?text=Quero%20o%20Convite%20Animado" class="btn btn-outline">Pedir agora</a>
+    </div>
+    <div class="card" style="border-color: var(--rose);">
+      <h4>Interativo</h4>
+      <div class="price">R$ 79,90</div>
+      <ul><li>Interface com 2 páginas</li><li>Localização e presentes</li><li>Confirmação de presença</li></ul>
+      <a href="https://wa.me/5513997958538?text=Quero%20o%20Convite%20Interativo" class="btn btn-gold" style="background: var(--rose); border-color: var(--rose); color: #fff;">Pedir agora</a>
+    </div>
+  </div>
+</section>
 
-<a href="#" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl float-btn">
-    <i class="fab fa-whatsapp text-3xl"></i>
-</a>
+<section id="videos">
+  <h2 class="section-title">🎥 Vídeos para Empresas</h2>
+  <h3 class="section-sub-title">Vídeos com IA que vendem por você</h3>
+  <p class="section-desc">Conteúdo profissional para redes sociais, apresentações e campanhas. Sem equipe de produção, sem estúdio, sem custo absurdo.</p>
+  
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=600"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600"></div>
+  </div>
+
+  <div class="grid-3">
+    <div class="card"><h4>Teste promocional</h4><div class="price">R$ 79</div><ul><li>1 vídeo curto (até 30s)</li><li>Edição profissional</li></ul><a href="#" class="btn btn-outline">Testar</a></div>
+    <div class="card"><h4>Premium</h4><div class="price">R$ 150</div><ul><li>Estrutura estratégica</li><li>Foco em engajamento</li></ul><a href="#" class="btn btn-outline">Contratar</a></div>
+    <div class="card" style="border-color: var(--gold);"><h4>Profissional</h4><div class="price">R$ 200 a 300</div><ul><li>Vídeo completo e estratégia</li><li>Foco em atrair clientes</li></ul><a href="#" class="btn btn-gold">Contratar</a></div>
+  </div>
+</section>
+
+<section id="depoimentos" style="background: #0d0d0d;">
+  <h2 class="section-title">💬 Depoimentos</h2>
+  <h3 class="section-sub-title">O que dizem nossos clientes</h3>
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"As fotos ficaram incríveis! Minha filha não acreditou que eram criadas com IA. Usamos no convite da festa e todo mundo perguntou quem foi o fotógrafo!"</p>
+      <div class="author">Ana Paula M.</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"O convite animado superou todas as expectativas. Recebi mensagens de todo mundo elogiando antes mesmo da festa começar. Vale muito o investimento!"</p>
+      <div class="author">Carlos Eduardo R.</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Contratei o pacote de vídeos mensais pro meu restaurante e as visualizações no Instagram triplicaram em 3 semanas. Profissional demais!"</p>
+      <div class="author">Mariana F.</div>
+    </div>
+  </div>
+</section>
+
+<div class="final-cta">
+  <h2 class="section-title">Pronto para começar?</h2>
+  <p style="margin-bottom: 30px; color: #b8a898;">Teste agora por R$ 19,90 e veja a mágica acontecer ✨</p>
+  <a href="https://wa.me/5513997958538?text=Quero%20fazer%20o%20teste%20de%202%20fotos%20por%2019,90" class="footer-btn">Testar por R$ 19,90 →</a>
+  <br>
+  <a href="https://wa.me/5513997958538" style="color: #25d366; text-decoration: none; font-weight: bold; font-size: 14px;">Tirar dúvidas no WhatsApp</a>
+  <p style="margin-top: 60px; font-size: 13px; color: #444;">© 2026 - Essencia Visual Studio</p>
+</div>
+
+<a href="https://wa.me/5513997958538" class="wa-float">💬</a>
 
 <script>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-document.querySelectorAll("section").forEach(sec => {
-  sec.classList.add("fade-up");
-  observer.observe(sec);
-});
+  function startTimer() {
+    let duration = (14 * 60) + 52; 
+    let timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        document.getElementById('timer').textContent = minutes + ":" + seconds;
+        if (--timer < 0) { timer = duration; }
+    }, 1000);
+  }
+  window.onload = startTimer;
 </script>
-
-<!-- update imagens -->
 
 </body>
 </html>
